@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const sym = Symbol('foo')
+      // console.log(sym.description) //foo
+
+      // let sym = Symbol('sym')
+      // let sym2 = Symbol('sym2')
+      // let a = {}
+      // a[sym] = 'Hello world'
+      // a[sym2] = 'Hello JS'
+      // let a = {
+      //   [sym]: 'Hello JS'
+      // }
+      // let a ={}
+      // Object.defineProperty(a,sym,{value:'Hello'})
+
+      // let obj = {
+      //   [sym]: function (args) {
+      //     console.log(args)
+      //   }
+      // }
+      // let obj = {
+      //   [sym](args) {}
+      // }
+
+      // const Media = 'Media'
+      // obj = {
+
+      //   [Media]() {
+      //     console.log(123)
+      //   }
+      // }
+      // const obj = {}
+      // obj.level = {
+      //   DEBUG: Symbol('debug'),
+      //   INFO: Symbol('info'),
+      //   WARN: Symbol('warn')
+      // }
+      //console.log(obj)
+      const COLOR_RED = Symbol('red')
+      const COLOR_GREEN = Symbol('green')
+
+      // function getComplement(color) {
+      //   switch (color) {
+      //     case COLOR_RED:
+      //       return COLOR_GREEN
+      //     case COLOR_GREEN:
+      //       return COLOR_RED
+      //     default:
+      //       throw new Error('Undefined color')
+      //   }
+      // }
+      // console.log(getComplement(1))
+      // class Point {
+      //   #x
+      //   #y私有属性
+      //   constructor() {
+      //     this.#x = x
+      //     this.#y = y
+      //   }
+      //   equals(point) {
+      //     return this.#x === point.#x && this.#y === point.#y
+      //   }
+      // }
+
+      // function getArea(shape, options) {
+      //   let area = 0
+      //   switch (shape) {
+      //     case 'Tri': //术字符串
+      //       area = 0.5 * options.width * options.height
+      //       break
+      //   }
+      //   return area
+      // }
+      // console.log(getArea('Tri', { width: 100, height: 100 })) // 魔术字符串
+      // const shapType = {
+      //   triangle: Symbol()
+      // }
+      // function getArea(shape, options) {
+      //   let area = 0
+      //   switch (shape) {
+      //     case shapType.triangle: //术字符串
+      //       area = 0.5 * options.width * options.height
+      //       break
+      //   }
+      //   return area
+      // }
+      // console.log(getArea(shapType.triangle, { width: 100, height: 100 })) // 魔术字符串
+      // const obj = {}
+      // let a = Symbol('a')
+      // let b = Symbol('b')
+
+      // obj[a] = 'Hello'
+      // obj[b] = 'World'
+
+      // const objectSymbols = Object.getOwnPropertySymbols(obj)
+
+      // for (item in objectSymbols) {
+      //   console.log(objectSymbols[item])
+      // }
+      // [Symbol(a), Symbol(b)]
+
+      let obj = {
+        [Symbol('my symbol')]: 1,
+        enum: 2,
+        nonEnum: 3
+      }
+      console.log(Reflect.ownKeys(obj))
+    </script>
+  </body>
+</html>

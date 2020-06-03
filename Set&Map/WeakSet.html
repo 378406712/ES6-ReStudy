@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  WeakSet 的成员只能是对象，而不能是其他类型的值。
+      //   const ws = new WeakSet()
+      //   ws.add({ a: 1 })
+      //   console.log(ws)
+
+      //   const a = [
+      //     [1, 2],
+      //     [3, 4],
+      //     [5, 6]
+      //   ]
+      //   const ws = new WeakSet(a)
+      //   console.log(ws)
+      // const b = [3,4]
+      // const ws = new WeakSet(b) // Invalid value used in weak set.
+
+      //   const ws = new WeakSet()
+      //   const obj = {},
+      //     foo = {}
+      //   ws.add(window).add(obj)
+      //   console.log(ws.has(window))
+      //   console.log(ws.has(foo))
+      //   ws.delete(window)
+      //   console.log(ws.has(window))
+      const foos = new WeakSet()
+      class Foo {
+        constructor() {
+          foos.add(this)
+        }
+        method() {
+          if (foos.has(this)) {
+            throw new TypeError('Foo.prototype.method 只能在Foo的实例上调用！')
+          }
+        }
+      }
+      const foo = new Foo()
+
+      console.log(foo.method())
+    </script>
+  </body>
+</html>

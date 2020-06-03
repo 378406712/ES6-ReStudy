@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myDiv"></div>
+    <script>
+      //   const data = {}
+      //   const element = document.getElementById('myDiv')
+      //   data[element] = 'mydata'
+      //   console.log(data)
+
+      //   const m = new Map()
+      //   const o = { p: 'Hello World' }
+      //   m.set(o, 'content')
+      //   m.get(o) //content
+      //   console.log(m)
+
+      //   const map = new Map([
+      //     ['name', '张三'],
+      //     ['title', 'Author']
+      //   ])
+      //   console.log(map.size)
+      //   console.log(map.has('name'))
+      //   console.log(map.get('name'))
+      //   const set = new Set([
+      //     ['foo', 1],
+      //     ['bar', 2]
+      //   ])
+      //   const m1 = new Map(set)
+      //   const m2 = new Map([['baz', 3]])
+      //   const m3 = new Map(m2)
+      //   console.log(m1.get('foo'))
+      //   console.log(m3.get('baz'))
+      //   const map = new Map()
+      //   const k1 = ['a']
+      //   const k2 = ['a']
+      //   map.set(k1, '123')
+      //   map.set(k2, '456')
+      //   console.log(map.get(k1))
+      //   console.log(map.get(k2))
+
+      // let map = new Map()
+      // map.set(-0, 123)
+      // console.log(map.get(+0)) //123
+      // map.set(true, 1)
+      // map.set('true', 2)
+      // console.log(map.get(true)) // 1)
+
+      // map.set(undefined, 3)
+      // map.set(null, 4)
+      // console.log(map.get(null))
+      // map.set(NaN, 123)
+      // map.set(NaN, 1223)
+      // console.log(map.get(NaN)) // 123)
+
+      // const map = new Map()
+      // map.set('foo', true)
+      // map.set('bar', false)
+      // map.set('a', 1).set('b', 2)
+      // console.log(map.size)
+      // console.log(map.get('a'))
+      // map.delete('b')
+      // map.clear()
+      // console.log(map)
+
+      // const map = new Map([
+      //   ['F', 'no'],
+      //   ['T', 'yes']
+      // ])
+      // for (let [key, value] of map.entries()) {
+      //   console.log(key, value)
+      // }
+      // const map = new Map()
+      // console.log(map[Symbol.iterator] === map.entries)
+      // const map = new Map([
+      //   [1, 'one'],
+      //   [2, 'two'],
+      //   [3, 'three']
+      // ])
+      // console.log([...map])
+      // const map = new Map([
+      //   [1, 'one'],
+      //   [2, 'two'],
+      //   [3, 'three']
+      // ])
+      // const reporter = {
+      //   report: function (key, value) {
+      //     console.log('Key: %s, Value: %s', key, value)
+      //   }
+      // }
+      // map.forEach(function (value, key, map) {
+      //   this.report(key, value)
+      //   console.log('this=> ' + this)
+      // }, reporter)
+
+      function strMapToObj(strMap) {
+        let obj = Object.create(null)
+        for (let [k, v] of strMap) {
+          obj[k] = v
+        }
+        return obj
+        console.log(obj)
+      }
+      // const myMap = new Map().set('yes', true).set('no', false)
+
+      // strMapToObj(myMap)
+
+      // let obj = { a: 1, b: 2 }
+      // let map = new Map(Object.entries(obj))
+      // console.log(map.get('a'))
+      function strMapToJson(strMap) {
+        return JSON.stringify(strMapToObj(strMap))
+      }
+
+      let myMap = new Map().set('yes', true).set('no', false)
+
+      console.log(strMapToJson(myMap))
+    </script>
+  </body>
+</html>

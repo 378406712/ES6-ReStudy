@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   const Weakmap = new WeakMap()
+      //   Weakmap.set({ a: 2 }, 1)
+      //   console.log(Weakmap)
+
+      //   const map = new Map()
+      //   map.set(1, 2)
+      //   console.log(map)
+
+      const wm = new WeakMap()
+      let key = {}
+      let obj = { foo: 1 }
+      wm.set(key, obj)
+      obj = null
+      console.log(wm)
+      console.log(wm.get(key))
+    </script>
+  </body>
+</html>

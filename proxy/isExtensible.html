@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const target = Object.defineProperties(
+        {},
+        {
+          p: {
+            value: 123,
+            writable: false,
+            isExtensible: false,
+            configurable: false
+          }
+        }
+      )
+      //   const p = new Proxy(
+      //     {},
+      //     {
+      //       isExtensible(target) {
+      //         console.log('called')
+      //         return true
+      //       }
+      //     }
+      //   )
+      target.p = 456
+      console.log(target.p)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const handler = {
+      //     apply(target,ctx,args){
+      //         return Reflect.apply(...arguments)
+      //     }
+      // }
+      //   const target = function () {
+      //     return 'I am the target'
+      //   }
+      //   const handler = {
+      //     apply() {
+      //       return 'I am the proxy'
+      //     }
+      //   }
+      //   const p = new Proxy(target, handler)
+      //   console.log(p())
+
+      const twice = {
+        apply(target, ctx, args) {
+          return Reflect.apply(...arguments) * 2
+        }
+      }
+      function sum(left, right) {
+        return left + right
+      }
+      const proxy = new Proxy(sum, twice)
+      proxy(1, 2)
+      proxy.call(null, 5, 6)
+      proxy.apply(null, [7, 8])
+      console.log(Reflect.apply(proxy, null, [9, 10])) // 38
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var p = new Proxy(function () {}, {
+        construct: function (target, args) {
+          console.log('called: ' + args.join(', '))
+          return { value: args[0] * 10 }
+        }
+      })
+      console.log(new p(1).value)
+    </script>
+  </body>
+</html>

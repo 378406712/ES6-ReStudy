@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   const target = {
+      //     m() {
+      //       console.log(this )
+      //     }
+      //   }
+      //   const handler = {}
+      //   const proxy = new Proxy(target, handler)
+      //   target.m()
+      //   proxy.m()
+      //   const _name = new WeakMap()
+
+      //   class Person {
+      //     constructor(name) {
+      //       _name.set(this, name)
+      //     }
+      //     get name() {
+      //       return _name.get(this)
+      //     }
+      //   }
+
+      //   const jane = new Person('Jane')
+
+      //   console.log(jane.name) // 'Jane'
+      //   const proxy = new Proxy(jane, {})
+      //   console.log(proxy.name) // undefined
+
+      //   const target = new Date()
+      //   const handler = {}
+      //   const proxy = new Proxy(target, handler)
+
+      //   proxy.getDate()
+
+      const target = new Date('2015-01-01')
+      const handler = {
+        get(target, prop) {
+          if (prop === 'getDate') {
+            return target.getDate.bind(target)
+          }
+          return Reflect.get(target, prop)
+        }
+      }
+      const proxy = new Proxy(target, handler)
+      console.log(proxy.getDate()) // 1
+    </script>
+  </body>
+</html>

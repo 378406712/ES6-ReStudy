@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let target = {
+      //     a: 1,
+      //     b: 2,
+      //     c: 3
+      //   }
+      //   let handler = {
+      //     ownKeys(target) {
+      //       return ['a']
+      //     }
+      //   }
+      //   let proxy = new Proxy(target, handler)
+      //   console.log(Object.keys(proxy))
+      const obj = { hello: 'world' }
+      const proxy = new Proxy(obj, {
+        ownKeys: function () {
+          return ['hello']
+        }
+      })
+      console.log()
+      for (let key in proxy) {
+        console.log(key) // 没有任何输出
+      }
+    </script>
+  </body>
+</html>

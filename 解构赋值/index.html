@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let [a, b, c] = [1, 2, 3]
+      //   console.log(a, b, c)
+      //   let [x, y, ...z] = ['a']
+      //   console.log(x, y, z)
+      //   let [a, [b], c] = [1, [2, 3], 4]
+      //   console.log(b) //2
+      // let [foo] = 1
+      //   let [foo] = false
+      //   let [foo] = NaN
+      //   let [foo] = undefined
+      //   let [foo] = null
+      //   let [foo] = {};{} is not iterable
+
+      //   function* fibs() {
+      //     let a = 0
+      //     let b = 1
+      //     while (true) {
+      //       yield a
+      //       ;[a, b] = [b, a + b]
+      //     }
+      //   }
+
+      //   let [first, second, third, fourth, fifth, sixth] = fibs()
+      //   console.log(sixth) // 5
+      //   let [x = 1] = [3]
+      //   console.log(x)
+      //   let [y = 1] = [null]
+      //   console.log(y)
+      //   function f() {
+      //     console.log('123')
+      //   }
+      //   let [x = f()] = []
+      //   console.log(x)
+      // const { log } = console
+      // log(123)
+      // let obj = {
+      //   p: ['hello', { y: 'world' }]
+      // }
+      // let {
+      //   p: [x, { y }]
+      // } = obj
+      // console.log(x + y)
+      // let obj = {}
+      // let arr = []
+      // ;({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true })
+      // console.log(obj,arr)
+      // const obj1 = {}
+      // const obj2 = { foo: 'bar' }
+      // Object.setPrototypeOf(obj1, obj2)
+      //   let {foo} = obj1
+      //   console.log(foo)
+      // let x
+      // ;({ x } = { x: 1 })
+      // console.log(x)
+      // let [a, b, c] = 'hello'
+      // let { length } = 'hello'
+
+      // console.log(a, b, c)
+      // console.log(length)
+
+      // function add([x, y]) {
+      //   console.log(x + y)
+      // }
+      // add([1, 2])
+      // function move({ x = 0, y = 0 } = {}) {
+      //   console.log([x, y])
+      // }
+      // move({ x: 3, y: 8 }) // [3, 8]
+      // move({ x: 3 }) // [3, 0]
+      // move({}) // [0, 0]
+      // move() // [0, 0]
+      // [(a)] = [1]
+      //   console.log(a)
+      // let x = 1,
+      //   y = 2
+      // ;[x, y] = [y, x]
+      // console.log(x, y)
+
+      // function example() {
+      //   return [1, 2, 3]
+      // }
+      // function example() {
+      //   return {
+      //     foo: 1,
+      //     bar: 2
+      //   }
+      // }
+      // let { foo, bar } = example()
+      // console.log(foo, bar)
+
+      const map = new Map()
+      map.set('first', 'hello')
+      map.set('second', 'world')
+
+      for (let [, value] of map) {
+        console.log(' is ' + value)
+      }
+    </script>
+  </body>
+</html>

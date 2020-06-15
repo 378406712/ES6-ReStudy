@@ -1,0 +1,11 @@
+{
+  "name": "module-load",
+  "version": "1.0.0",
+  "description": "- 默认情况下，浏览器是同步加载脚本，即渲染引擎遇到 scrpit 标签就会停下来，\r   等到执行完脚本，再继续向下渲染。如果是外部脚本，还必须加入脚本下载的世界",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let obj = {
+      //     foo: 'foo'
+      //   }
+      //   console.log('foo' in obj)
+      //   console.log(Reflect.has(obj, 'foo'))
+
+      //   const proxy = new Proxy(
+      //     {},
+      //     {
+      //       set: function (target, name, value, receiver) {
+      //         var success = Reflect.set(target, name, value, receiver)
+      //         console.log(success)
+      //         if (success) {
+      //           console.log(
+      //             'property ' + name + ' on ' + target + ' set to ' + value
+      //           )
+      //         }
+      //         return success
+      //       }
+      //     }
+      //   )
+      //   proxy.bar = 'bar'
+
+      //   var loggedObj = new Proxy(
+      //     {},
+      //     {
+      //       get(target, name) {
+      //         console.log('get', target, name)
+      //         return Reflect.get(target, name)
+      //       },
+      //       deleteProperty(target, name) {
+      //         console.log('delete' + name)
+      //         return Reflect.deleteProperty(target, name)
+      //       },
+      //       has(target, name) {
+      //         console.log('has' + name)
+      //         return Reflect.has(target, name)
+      //       }
+      //     }
+      //   )
+
+      //   const obj = {
+      //     foo: 'foo',
+      //     bar: 'bar',
+      //     get baz() {
+      //       return this.foo + this.bar
+      //     },
+      //     set fooz(value) {
+      //       return (this.foo = value)
+      //     }
+      //   }
+      //   console.log(Reflect.get(obj, 'foo'))
+      //   console.log(Reflect.get(obj, 'bar'))
+      //   console.log(Reflect.get(obj, 'baz'))
+      //   console.log(Reflect.set(obj, 'fooz', 'fooz'))
+      //   console.log(Reflect.get(obj, 'foo'))
+      //   delete obj.foo
+      // Reflect.deleteProperty(obj,'fooz')
+      //   console.log(obj)
+
+      //   function Greeting(name) {
+      //     this.name = name
+      //   }
+      //   const instance = Reflect.construct(Greeting, ['foo'])
+      //   console.log(instance)
+
+      //   function FancyThing() {
+      //     console.log(arguments[0])
+      //   }
+      //   const myObj = new FancyThing('a')
+      //   console.log(Reflect.getPrototypeOf(myObj) === FancyThing.prototype)
+
+      //   function add(a, b) {
+      //     console.log(this)
+      //     return a + b
+      //   }
+      //   function sub(a, b) {
+      //     console.log(this)
+      //     return a - b
+      //   }
+      //   var a1 = add.apply(sub, [1, 3]) //sub调用add的方法
+      //   var a2 = sub.apply(add, [4, 2])
+      //   console.log(a1)
+      //   console.log(a2)
+      //   function Person(name, age) {
+      //     this.name = name
+      //     this.age = age
+      //   }
+      //   function Students(age, name, grade) {
+      //     console.log(this)
+      //     Person.apply(this, arguments)
+      //     console.log(this)
+      //     this.grade = grade
+      //     console.log(this)
+      //   }
+      //   var student = new Students('a', 12, 12)
+      //   var person = new Person()
+      //   console.log(person)
+      //   const ages = [11, 33, 12, 54, 18, 96]
+      //   const youngest = Reflect.apply(Math.min, Math, ages)
+      //   const oldest = Reflect.apply(Math.max, Math, ages)
+      //   const type = Reflect.apply(Object.prototype.toString, youngest, [])
+
+      //   console.log(youngest)
+      //   console.log(oldest)
+      //   console.log(type)
+
+      //   const p = new Proxy(
+      //     {},
+      //     {
+      //       defineProperty(target, prop, descriptor) {
+      //         console.log(descriptor)
+      //         return Reflect.defineProperty(target, prop, descriptor)
+      //       }
+      //     }
+      //   )
+      //   p.foo = 'bar'
+      const queuedObservers = new Set()
+
+      const observe = (fn) => queuedObservers.add(fn)
+      const observable = (obj) => new Proxy(obj, { set })
+
+      function set(target, key, value, receiver) {
+        const result = Reflect.set(target, key, value, receiver)
+        queuedObservers.forEach((observer) => observer())
+        return result
+      }
+      const person = observable({
+        name: '张三',
+        age: 20
+      })
+
+      function print() {
+        console.log(`${person.name}, ${person.age}`)
+      }
+
+      observe(print)
+      person.name = '李四'
+      person.name = '李四1'
+    </script>
+  </body>
+</html>

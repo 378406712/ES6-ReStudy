@@ -1,0 +1,17 @@
+{
+  "name": "Generator-Async",
+  "version": "1.0.0",
+  "description": "ES6 之前，异步编程的方法: 1.回调函数 2.事件监听 3.发布/订阅 4.Promise 对象",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "node-fetch": "^2.6.0",
+    "thunkify": "^2.1.2"
+  }
+}

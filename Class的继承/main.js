@@ -68,15 +68,15 @@
 // let b = new B()
 // b.m
 
-class A {
-  constructor() {
-    this.x = 1
-    this.print = print
-  }
-  print() {
-    console.log(this.x)
-  }
-}
+// class A {
+//   constructor() {
+//     this.x = 1
+//     this.print = print
+//   }
+//   print() {
+//     console.log(this.x)
+//   }
+// }
 
 // class B extends A {
 //   constructor() {
@@ -92,28 +92,67 @@ class A {
 // b.m()
 // let a = new A()
 
-class Parent {
-  x = 1
-  static myMethod(msg) {
-    console.log('static', msg)
-  }
-  myMethod(msg1) {
-    console.log('instance', msg1)
-  }
-}
+// class Parent {
+//   x = 1
+//   static myMethod(msg) {
+//     console.log('static', msg)
+//   }
+//   myMethod(msg1) {
+//     console.log('instance', msg1)
+//   }
+// }
 
-class Child extends Parent {
-  static myMethod(msg) {
-    super.myMethod(msg)
-  }
-  myMethod(msg) {
-    super.myMethod(msg)
-  }
-}
+// class Child extends Parent {
+//   static myMethod(msg) {
+//     super.myMethod(msg)
+//   }
+//   myMethod(msg) {
+//     super.myMethod(msg)
+//   }
+// }
 
-Child.myMethod(1) // static 1
+// Child.myMethod(1) // static 1
 
-var child = new Child()
-child.myMethod(2) // instance 2
-console.log(Parent)
-console.log(Child)
+// var child = new Child()
+// child.myMethod(2) // instance 2
+// console.log(Parent)
+// console.log(Child)
+
+// class A {
+//   constructor() {
+//     this.x = 1
+//   }
+//   static print() {
+//     console.log(this.x)
+//   }
+// }
+
+// class B extends A {
+//   constructor() {
+//     super()
+//     this.x = 2 //定义在实例上
+//   }
+//   static m() {
+//     super.print()
+//   }
+// }
+// let b = new B()
+// let a = new A()
+// B.x = 3 //定义在原型上
+// B.m() // 3
+// console.log(b)
+// var obj = {
+//   a: 1
+// }
+
+// console.log(obj) // MyObject: [object Object]
+
+// class A {}
+// class B extends A {}
+// let a = new A()
+// let b = new B()
+// console.log(B.prototype.__proto__ == A.prototype)
+// console.log(a.__proto__ == A.prototype)
+// console.log(b.__proto__ == B.prototype)
+// console.log(B.__proto__ == A)
+// console.log(b)
